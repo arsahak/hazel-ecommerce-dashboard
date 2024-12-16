@@ -1,7 +1,7 @@
 export const usersDemoData = [
   {
     name: "Travis Herron",
-    email: "travis@gmail.com",
+    email: "travis@gmail.com ",
     phone: "+1 863 567-6765",
     subscription: "paid",
     subscriptionsDate: "11-12-2024",

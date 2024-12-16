@@ -1,33 +1,38 @@
-// import React, { useEffect, useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
-// const WorldRealTImeClock: React.FC = () => {
-//   const [currentTime, setCurrentTime] = useState(new Date());
+const WorldRealTimeClock: React.FC = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-//   useEffect(() => {
-//     // Update the time every second
-//     const interval = setInterval(() => {
-//       setCurrentTime(new Date());
-//     }, 1000);
+  // Update time using requestAnimationFrame for smoother updates
+  useEffect(() => {
+    const updateClock = () => {
+      setCurrentTime(new Date());
+      requestAnimationFrame(updateClock); // Schedule the next frame
+    };
 
-//     // Cleanup interval on component unmount
-//     return () => clearInterval(interval);
-//   }, []);
+    // Start the clock updates
+    requestAnimationFrame(updateClock);
 
-//   // Format the date to match "November 04, 2024 22:47 PM"
-//   const formattedTime = currentTime.toLocaleString("en-US", {
-//     year: "numeric",
-//     month: "long",
-//     day: "2-digit",
-//     hour: "2-digit",
-//     minute: "2-digit",
-//     hour12: true, // Use 24-hour format
-//   });
+    // No cleanup needed because requestAnimationFrame is self-clearing
+  }, []);
 
-//   return (
-//     <div className="flex justify-center items-center  ">
-//       <div className="text-xl font-bold text-gray-800">{formattedTime}</div>
-//     </div>
-//   );
-// };
+  // Format the time with proper options
+  const formattedTime = currentTime.toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true, // 12-hour clock format
+  });
 
-// export default WorldRealTImeClock;
+  return (
+    <div className="flex justify-center items-center p-4 ">
+      <div className="text-xl font-bold text-gray-800">{formattedTime}</div>
+    </div>
+  );
+};
+
+export default WorldRealTimeClock;

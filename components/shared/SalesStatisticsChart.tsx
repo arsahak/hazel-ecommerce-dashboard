@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import {
   Bar,
   BarChart,
@@ -10,15 +11,7 @@ import {
   YAxis,
 } from "recharts";
 
-// Define the type for each data object
-type DataPoint = {
-  name: string;
-  revenue: number;
-  expense: number;
-};
-
-// Sample data
-const data: DataPoint[] = [
+const data = [
   { name: "Jan", revenue: 4000, expense: 2400 },
   { name: "Feb", revenue: 3000, expense: 2000 },
   { name: "Mar", revenue: 2000, expense: 9800 },
@@ -33,7 +26,7 @@ const data: DataPoint[] = [
   { name: "Dec", revenue: 4200, expense: 3000 },
 ];
 
-const SalesStatisticsChart: React.FC = () => {
+const SalesStatisticsChart = () => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <BarChart
@@ -47,15 +40,8 @@ const SalesStatisticsChart: React.FC = () => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis tickFormatter={(value: number) => `$${value / 1000}k`} />
-        <Tooltip
-          formatter={(value) => {
-            if (Array.isArray(value)) {
-              return value.map((v) => `$${Number(v) / 1000}k`).join(", ");
-            }
-            return `$${Number(value) / 1000}k`;
-          }}
-        />
+        <YAxis tickFormatter={(value) => `$${Number(value) / 1000}k`} />
+        <Tooltip formatter={(value) => `$${Number(value) / 1000}k`} />
         <Legend />
         <Bar dataKey="revenue" fill="#0b213f" />
         <Bar dataKey="expense" fill="#d3d3d3" />

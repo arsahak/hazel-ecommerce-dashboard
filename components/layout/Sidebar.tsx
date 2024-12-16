@@ -2,12 +2,16 @@
 import { doLogout } from "@/app/action/userAuth";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FaGetPocket, FaPeopleGroup } from "react-icons/fa6";
 import { HiChatBubbleLeftRight } from "react-icons/hi2";
 import { IoLogOut } from "react-icons/io5";
-import { MdCategory, MdPayments } from "react-icons/md";
+import {
+  MdCategory,
+  MdOutlineProductionQuantityLimits,
+  MdPayments,
+} from "react-icons/md";
 import { RiDashboardHorizontalFill, RiEyeOffFill } from "react-icons/ri";
 
 const sideBarData = [
@@ -16,57 +20,52 @@ const sideBarData = [
     slug: "/",
     title: "Dashboard",
   },
-  // {
-  //   icon: (
-  //     <MdOutlineProductionQuantityLimits className="size-8 text-gray-700" />
-  //   ),
-  //   slug: "products",
-  //   title: "Products",
-  // },
+  {
+    icon: (
+      <MdOutlineProductionQuantityLimits className="size-8 text-gray-700" />
+    ),
+    slug: "/products",
+    title: "Products",
+  },
   {
     icon: <FaShoppingBasket className="size-7 text-gray-700" />,
-    slug: "orders",
+    slug: "/orders",
     title: "Orders",
   },
   {
     icon: <MdCategory className="size-7 text-gray-700" />,
-    slug: "category",
+    slug: "/category",
     title: "Category",
   },
   {
     icon: <FaPeopleGroup className="size-7 text-gray-700" />,
-    slug: "sellers",
-    title: "Sellers",
+    slug: "/customers",
+    title: "Customers",
   },
   {
     icon: <MdPayments className="size-7 text-gray-700" />,
-    slug: "payment-request",
-    title: "Payment Request",
+    slug: "/transactions",
+    title: "Transactions",
   },
   {
     icon: <RiEyeOffFill className="size-7 text-gray-700" />,
-    slug: "deactive-sellers",
-    title: "Deactive Sellers",
+    slug: "/deactive-customers",
+    title: "Deactive Customers",
   },
   {
     icon: <FaGetPocket className="size-7 text-gray-700" />,
-    slug: "sellers-request",
-    title: "Sellers Request",
+    slug: "/retailer-request",
+    title: "Retailer Request",
   },
   {
     icon: <HiChatBubbleLeftRight className="size-7 text-gray-700" />,
-    slug: "chat-seller",
-    title: "Chat Seller",
+    slug: "/chat-customers",
+    title: "Chat Customers",
   },
-  // {
-  //   icon: <IoLogOut className="size-7 text-gray-700" />,
-  //   slug: "logout",
-  //   title: "Logout",
-  // },
 ];
 
 const Sidebar = () => {
-  const [selectNavItem, setSelectNavItem] = useState("/");
+  const pathname = usePathname();
 
   return (
     <div>
@@ -114,7 +113,7 @@ const Sidebar = () => {
                 <Link
                   href={el?.slug}
                   className={`flex items-center p-2 text-gray-700 rounded-lg  hover:bg-gray-100 group ${
-                    selectNavItem === el?.slug ? "bg-gray-100" : ""
+                    pathname === el?.slug ? "bg-gray-100" : ""
                   }`}
                 >
                   {el?.icon}

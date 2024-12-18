@@ -160,79 +160,85 @@
 
 // export default ProductList;
 
+"use client";
 
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { FiEdit, FiMoreVertical, FiSearch, FiStar } from "react-icons/fi";
+import { Pagination } from "../shared/Pagination/Pagination";
 
-'use client'
-
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import { FiSearch, FiStar, FiMoreVertical, FiEdit } from 'react-icons/fi'
-import { Pagination } from '../shared/Pagination/Pagination'
+type Product = {
+  id: number;
+  name: string;
+  sku: string;
+  stock: number;
+  price: number;
+  type: string;
+  statistics?: string; // Optional field
+  tags: string[];
+  image?: string; // Optional field
+  lastModified: string;
+};
 
 export default function ProductList() {
-  const [activeTab, setActiveTab] = useState('all')
-  const [viewCount, setViewCount] = useState(8)
-  const [totalCount, setTotalCount] = useState(16)
-  const [products, setProducts] = useState([])
-  const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = 2 
+  const [activeTab, setActiveTab] = useState<
+    "all" | "published" | "drafts" | "trash"
+  >("all");
+  const [viewCount, setViewCount] = useState<number>(8);
+  const [totalCount, setTotalCount] = useState<number>(16);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const totalPages = Math.ceil(totalCount / viewCount);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/products.json') // Adjust to your API route if needed
-        const data = await response.json()
-        setProducts(data)
+        const response = await fetch("/products.json");
+        const data: Product[] = await response.json();
+        setProducts(data);
       } catch (error) {
-        console.error('Error fetching products:', error)
+        console.error("Error fetching products:", error);
       }
-    }
+    };
 
-    fetchProducts()
-  }, [])
-  console.log(products, 'products');
+    fetchProducts();
+  }, []);
 
   const filteredProducts =
-    activeTab === 'all'
+    activeTab === "all"
       ? products
       : products.filter((product) =>
-          activeTab === 'published'
+          activeTab === "published"
             ? product.stock > 0
-            : activeTab === 'drafts'
+            : activeTab === "drafts"
             ? product.stock === 0
             : product.stock < 0
-        )
+        );
 
   const handleExportCSV = () => {
-    // Placeholder function for CSV export
-    console.log('Exporting CSV...')
-  }
+    console.log("Exporting CSV...");
+  };
 
   const handleAddNewProduct = () => {
-    // Placeholder function for adding new product
-    console.log('Adding new product...')
-  }
+    console.log("Adding new product...");
+  };
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // Placeholder function for search
-    console.log('Searching...')
-  }
+    e.preventDefault();
+    console.log("Searching...");
+  };
 
   const handleApplyFilters = () => {
-    // Placeholder function for applying filters
-    console.log('Applying filters...')
-  }
+    console.log("Applying filters...");
+  };
 
   const handleClearFilters = () => {
-    // Placeholder function for clearing filters
-    console.log('Clearing filters...')
-  }
+    console.log("Clearing filters...");
+  };
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-    // Here you would typically fetch data for the new page
-  }
+    setCurrentPage(page);
+  };
 
   return (
     <div className="p-4 sm:p-6">
@@ -257,7 +263,10 @@ export default function ProductList() {
             placeholder="Search Product"
             className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2">
+          <button
+            type="submit"
+            className="absolute right-3 top-1/2 -translate-y-1/2"
+          >
             <FiSearch className="w-4 h-4 text-gray-500" />
           </button>
         </form>
@@ -265,38 +274,56 @@ export default function ProductList() {
 
       <div className="mb-6 overflow-x-auto">
         <nav className="flex gap-6 text-sm whitespace-nowrap">
-          {['all', 'published', 'drafts', 'trash'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`${
-                activeTab === tab ? 'text-gray-900' : 'text-gray-500'
-              } capitalize`}
-            >
-              {tab === 'all' ? 'Products: All' : tab}{' '}
-              <span className="text-gray-400">
-                ({tab === 'all' ? 16 : tab === 'published' ? 7 : tab === 'drafts' ? 5 : 4})
-              </span>
-            </button>
-          ))}
+          {["all", "published", "drafts", "trash"].map(
+            (tab: any, index: number) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`${
+                  activeTab === tab ? "text-gray-900" : "text-gray-500"
+                } capitalize`}
+              >
+                {tab === "all" ? "Products: All" : tab}
+                <span className="text-gray-400">
+                  (
+                  {tab === "all"
+                    ? 16
+                    : tab === "published"
+                    ? 7
+                    : tab === "drafts"
+                    ? 5
+                    : 4}
+                  )
+                </span>
+              </button>
+            )
+          )}
         </nav>
       </div>
 
       <div className="flex flex-wrap gap-4 mb-6">
-        {['Stock Status', 'Product Category', 'Product Seller', 'Product Type', 'Additional Options'].map(
-          (filter) => (
-            <div key={filter} className="relative w-full sm:w-48">
-              <select className="w-full appearance-none border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">{filter}</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
-              </div>
+        {[
+          "Stock Status",
+          "Product Category",
+          "Product Seller",
+          "Product Type",
+          "Additional Options",
+        ].map((filter) => (
+          <div key={filter} className="relative w-full sm:w-48">
+            <select className="w-full appearance-none border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">{filter}</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
             </div>
-          )
-        )}
+          </div>
+        ))}
 
         <div className="flex gap-4 w-full sm:w-auto mt-4 sm:mt-0">
           <button
@@ -332,30 +359,56 @@ export default function ProductList() {
           <thead className="bg-gray-50">
             <tr>
               <th className="p-4 text-left">
-                <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                <input
+                  type="checkbox"
+                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Product Name</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">SKU</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Stock</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Price</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Type</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Statistics</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Tags</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Rate</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Date</th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">Actions</th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Product Name
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                SKU
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Stock
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Price
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Type
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Statistics
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Tags
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Rate
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Date
+              </th>
+              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
-            {filteredProducts.map(product => (
+            {filteredProducts.map((product) => (
               <tr key={product.id} className="border-b">
                 <td className="p-4">
-                  <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                  <input
+                    type="checkbox"
+                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  />
                 </td>
                 <td className="p-4">
                   <div className="flex items-center gap-3">
                     <Image
-                      src={product?.image || '/placeholder.svg'}
+                      src={product?.image || "/placeholder.svg"}
                       alt={product?.name}
                       width={40}
                       height={40}
@@ -366,8 +419,14 @@ export default function ProductList() {
                 </td>
                 <td className="p-4">{product.sku}</td>
                 <td className="p-4">
-                  <span className={`text-${product.stock > 0 ? 'emerald' : 'red'}-600`}>
-                    {product.stock > 0 ? `In stock (${product.stock})` : 'Out of stock'}
+                  <span
+                    className={`text-${
+                      product.stock > 0 ? "emerald" : "red"
+                    }-600`}
+                  >
+                    {product.stock > 0
+                      ? `In stock (${product.stock})`
+                      : "Out of stock"}
                   </span>
                 </td>
                 <td className="p-4">${product.price.toFixed(2)}</td>
@@ -375,8 +434,11 @@ export default function ProductList() {
                 <td className="p-4">{product.statistics}</td>
                 <td className="p-4">
                   <div className="flex flex-wrap gap-1">
-                    {product.tags.map(tag => (
-                      <span key={tag} className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs">
+                    {product.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -387,7 +449,8 @@ export default function ProductList() {
                 </td>
                 <td className="p-4">
                   <div className="text-sm">
-                    Last modified:<br />
+                    Last modified:
+                    <br />
                     {product.lastModified}
                   </div>
                 </td>
@@ -406,7 +469,7 @@ export default function ProductList() {
           </tbody>
         </table>
         <div className="p-4 border-t">
-          <Pagination 
+          <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
@@ -414,7 +477,5 @@ export default function ProductList() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-

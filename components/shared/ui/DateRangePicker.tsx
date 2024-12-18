@@ -57,16 +57,16 @@
 
 // export default DateRangePicker;
 
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
-import { FiCalendar } from 'react-icons/fi'
-import { Calendar } from '../Calender/Calender'
+import { FiCalendar } from "react-icons/fi";
+import { Calendar } from "../Calender/Calender";
 
-export default function DateRangePicker({topTitle}) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [selectedRange, setSelectedRange] = useState('01/01/2024 - 18/12/2024')
+export default function DateRangePicker({ topTitle }: any) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedRange, setSelectedRange] = useState("01/01/2024 - 18/12/2024");
 
   return (
     <div className="p-6">
@@ -87,14 +87,12 @@ export default function DateRangePicker({topTitle}) {
             selectedRange={selectedRange}
             onClose={() => setIsOpen(false)}
             onSelect={(range) => {
-              setSelectedRange(range)
-              setIsOpen(false)
+              setSelectedRange(range);
+              setIsOpen(false);
             }}
           />
         </div>
       )}
     </div>
-  )
+  );
 }
-
-

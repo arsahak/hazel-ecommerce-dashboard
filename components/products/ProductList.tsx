@@ -166,6 +166,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiEdit, FiMoreVertical, FiSearch, FiStar } from "react-icons/fi";
 import { Pagination } from "../shared/Pagination/Pagination";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+// import {productImage} from "@/public/assets/products/8834.jpg_wh860.jpg"
 
 type Product = {
   id: number;
@@ -208,12 +210,12 @@ export default function ProductList() {
     activeTab === "all"
       ? products
       : products.filter((product) =>
-          activeTab === "published"
-            ? product.stock > 0
-            : activeTab === "drafts"
+        activeTab === "published"
+          ? product.stock > 0
+          : activeTab === "drafts"
             ? product.stock === 0
             : product.stock < 0
-        );
+      );
 
   const handleExportCSV = () => {
     console.log("Exporting CSV...");
@@ -241,7 +243,7 @@ export default function ProductList() {
   };
 
   return (
-    <div className="p-4 sm:p-6">
+    <div className="mt-5">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
         <div className="flex flex-col lg:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
           <button
@@ -279,9 +281,8 @@ export default function ProductList() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`${
-                  activeTab === tab ? "text-gray-900" : "text-gray-500"
-                } capitalize`}
+                className={`${activeTab === tab ? "text-gray-900" : "text-gray-500"
+                  } capitalize`}
               >
                 {tab === "all" ? "Products: All" : tab}
                 <span className="text-gray-400">
@@ -289,10 +290,10 @@ export default function ProductList() {
                   {tab === "all"
                     ? 16
                     : tab === "published"
-                    ? 7
-                    : tab === "drafts"
-                    ? 5
-                    : 4}
+                      ? 7
+                      : tab === "drafts"
+                        ? 5
+                        : 4}
                   )
                 </span>
               </button>
@@ -420,9 +421,8 @@ export default function ProductList() {
                 <td className="p-4">{product.sku}</td>
                 <td className="p-4">
                   <span
-                    className={`text-${
-                      product.stock > 0 ? "emerald" : "red"
-                    }-600`}
+                    className={`text-${product.stock > 0 ? "emerald" : "red"
+                      }-600`}
                   >
                     {product.stock > 0
                       ? `In stock (${product.stock})`
@@ -456,11 +456,17 @@ export default function ProductList() {
                 </td>
                 <td className="p-4">
                   <div className="flex items-center gap-2">
-                    <button className="text-gray-500 hover:text-gray-700">
-                      <FiEdit className="w-4 h-4" />
+                    <button
+                      className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg "
+                    // onClick={() => router.push(`/client-edit`)}
+                    >
+                      <FiEdit className="text-[#D5AD45] size-4" />
                     </button>
-                    <button className="text-gray-500 hover:text-gray-700">
-                      <FiMoreVertical className="w-4 h-4" />
+                    <button
+                      className="bg-red-100 hover:bg-red-200 p-1.5 rounded-lg"
+                    // onClick={() => setClientDeletedModal(!clientDeletedModal)}
+                    >
+                      <RiDeleteBin6Fill className="text-red-500 size-4" />
                     </button>
                   </div>
                 </td>

@@ -11,7 +11,7 @@ export default function TransactionTable() {
   }
   
     return (
-      <div className="w-full overflow-x-auto">
+      <div className="w-full overflow-x-auto bg-white">
         <table className="w-full border-collapse">
           <thead>
             <tr className="text-left">
@@ -52,11 +52,11 @@ export default function TransactionTable() {
                 </td>
                 <td className="py-4 px-4">
                   <div className="flex items-center gap-3">
-                    <img
+                    {/* <img
                       src={transaction.seller.logo}
                       alt={transaction.seller.name}
                       className="w-8 h-8 rounded-full"
-                    />
+                    /> */}
                     <span>{transaction.seller.name}</span>
                   </div>
                 </td>

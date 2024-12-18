@@ -149,6 +149,8 @@
 
 "use client"
 import React, { useState } from 'react';
+import { FiEdit } from 'react-icons/fi';
+import { RiDeleteBin6Fill } from 'react-icons/ri';
 
 type Category = {
   id: number;
@@ -189,14 +191,14 @@ export default function CategoryList() {
   };
 
   const toggleCategoryStatus = (id: number) => {
-    setCategories(categories.map(category => 
+    setCategories(categories.map(category =>
       category.id === id ? { ...category, status: category.status === 'active' ? 'inactive' : 'active' } : category
     ));
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-100 ">
+      <div className="">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Category Management</h1>
           <button
@@ -206,7 +208,7 @@ export default function CategoryList() {
             Add New Category
           </button>
         </div>
-        
+
         {/* Category List */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <table className="min-w-full divide-y divide-gray-200">
@@ -236,24 +238,23 @@ export default function CategoryList() {
                     <div className="text-sm text-gray-500">{category.createdAt}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      category.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                    }`}>
+                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${category.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                      }`}>
                       {category.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium ">
                     <button
-                      onClick={() => toggleCategoryStatus(category.id)}
-                      className="text-indigo-600 hover:text-indigo-900 mr-4"
+                      className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg mr-5"
+                      // onClick={() => router.push(`/client-edit`)}
                     >
-                      Toggle Status
+                      <FiEdit className="text-[#D5AD45] size-4" />
                     </button>
                     <button
-                      onClick={() => handleDeleteCategory(category.id)}
-                      className="text-red-600 hover:text-red-900"
+                      className="bg-red-100 hover:bg-red-200 p-1.5 rounded-lg"
+                      // onClick={() => setClientDeletedModal(!clientDeletedModal)}
                     >
-                      Delete
+                      <RiDeleteBin6Fill className="text-red-500 size-4" />
                     </button>
                   </td>
                 </tr>
@@ -282,7 +283,7 @@ export default function CategoryList() {
                         type="text"
                         id="name"
                         value={newCategory.name}
-                        onChange={(e) => setNewCategory({...newCategory, name: e.target.value})}
+                        onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         required
                       />
@@ -293,7 +294,7 @@ export default function CategoryList() {
                         type="text"
                         id="description"
                         value={newCategory.description}
-                        onChange={(e) => setNewCategory({...newCategory, description: e.target.value})}
+                        onChange={(e) => setNewCategory({ ...newCategory, description: e.target.value })}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         required
                       />

@@ -166,6 +166,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiEdit, FiMoreVertical, FiSearch, FiStar } from "react-icons/fi";
 import { Pagination } from "../shared/Pagination/Pagination";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+// import {productImage} from "@/public/assets/products/8834.jpg_wh860.jpg"
 
 type Product = {
   id: number;
@@ -241,7 +243,7 @@ export default function ProductList() {
   };
 
   return (
-    <div className="p-4 sm:p-6">
+    <div className="mt-5">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
         <div className="flex flex-col lg:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
           <button
@@ -459,8 +461,11 @@ export default function ProductList() {
                     <button className="text-gray-500 hover:text-gray-700">
                       <FiEdit className="w-4 h-4" />
                     </button>
-                    <button className="text-gray-500 hover:text-gray-700">
-                      <FiMoreVertical className="w-4 h-4" />
+                    <button
+                      className="bg-red-100 hover:bg-red-200 p-1.5 rounded-lg"
+                      // onClick={() => setClientDeletedModal(!clientDeletedModal)}
+                    >
+                      <RiDeleteBin6Fill className="text-red-500 size-4" />
                     </button>
                   </div>
                 </td>

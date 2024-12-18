@@ -137,9 +137,10 @@ import { Pagination } from "../shared/Pagination/Pagination"
 
 
 import { orders } from "@/config/orders"
+import { RiDeleteBin6Fill } from "react-icons/ri"
 export default function ProductOrderTable() {
   const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = 2 
+  const totalPages = 2
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
@@ -147,7 +148,7 @@ export default function ProductOrderTable() {
   }
 
   return (
-    <div className="w-full overflow-x-auto mt-10">
+    <div className="bg-white w-full overflow-x-auto mt-10">
       <table className="w-full border-collapse">
         <thead>
           <tr className="text-left">
@@ -181,11 +182,10 @@ export default function ProductOrderTable() {
               </td>
               <td className="py-4 px-4">
                 <div className="flex items-center gap-2">
-                  <div className={`w-8 h-8 rounded flex items-center justify-center ${
-                    order.category.type === 'electronics' ? 'bg-blue-100' :
-                    order.category.type === 'fashion' ? 'bg-pink-100' :
-                    'bg-yellow-100'
-                  }`}>
+                  <div className={`w-8 h-8 rounded flex items-center justify-center ${order.category.type === 'electronics' ? 'bg-blue-100' :
+                      order.category.type === 'fashion' ? 'bg-pink-100' :
+                        'bg-yellow-100'
+                    }`}>
                     {order.category.type === 'electronics' && (
                       <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -217,11 +217,10 @@ export default function ProductOrderTable() {
                 </div>
               </td>
               <td className="py-4 px-4">
-                <span className={`inline-flex px-3 py-1 rounded-full text-sm font-medium ${
-                  order.orderStatus === 'COMPLETED' ? 'bg-blue-600 text-white' :
-                  order.orderStatus === 'CONFIRMED' ? 'bg-emerald-500 text-white' :
-                  'bg-red-500 text-white'
-                }`}>
+                <span className={`inline-flex px-3 py-1 rounded-full text-sm font-medium ${order.orderStatus === 'COMPLETED' ? 'bg-blue-600 text-white' :
+                    order.orderStatus === 'CONFIRMED' ? 'bg-emerald-500 text-white' :
+                      'bg-red-500 text-white'
+                  }`}>
                   {order.orderStatus}
                 </span>
               </td>
@@ -230,10 +229,9 @@ export default function ProductOrderTable() {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <svg
                       key={star}
-                      className={`w-5 h-5 ${
-                        star <= order.rating ? 'text-yellow-400' :
-                        star - order.rating < 1 ? 'text-yellow-400' : 'text-gray-200'
-                      }`}
+                      className={`w-5 h-5 ${star <= order.rating ? 'text-yellow-400' :
+                          star - order.rating < 1 ? 'text-yellow-400' : 'text-gray-200'
+                        }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -249,10 +247,16 @@ export default function ProductOrderTable() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
                   </button>
-                  <button className="text-gray-400 hover:text-gray-500">
+                  {/* <button className="text-gray-400 hover:text-gray-500">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
+                  </button> */}
+                  <button
+                    className="bg-red-100 hover:bg-red-200 p-1.5 rounded-lg"
+                  // onClick={() => setClientDeletedModal(!clientDeletedModal)}
+                  >
+                    <RiDeleteBin6Fill className="text-red-500 size-4" />
                   </button>
                 </div>
               </td>
@@ -261,12 +265,12 @@ export default function ProductOrderTable() {
         </tbody>
       </table>
       <div className="p-4 border-t">
-          <Pagination 
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </div>
   )
 }

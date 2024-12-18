@@ -11,7 +11,7 @@ export default function TransactionTable() {
   }
   
     return (
-      <div className="w-full overflow-x-auto">
+      <div className="w-full overflow-x-auto bg-white">
         <table className="w-full border-collapse">
           <thead>
             <tr className="text-left">

@@ -1,4 +1,6 @@
 import WorldRealTimeClock from "../shared/WorldRealTImeClock";
+import CustomerMetrics from "./CustomerMetrics";
+import CustomerAnalytics from "./CustomersList";
 import CustomersList from "./CustomersList";
 
 const CustomersViews = () => {
@@ -10,7 +12,8 @@ const CustomersViews = () => {
           <WorldRealTimeClock />
         </div>
       </div>
-      <CustomersList />
+      <CustomerMetrics/>
+      <CustomerAnalytics/>
     </div>
   );
 };

@@ -245,7 +245,7 @@ export default function CategoryList() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium ">
                     <button
-                      className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg mr-5"
+                      className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg mr-2"
                       // onClick={() => router.push(`/client-edit`)}
                     >
                       <FiEdit className="text-[#D5AD45] size-4" />

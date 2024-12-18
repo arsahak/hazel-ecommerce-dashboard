@@ -11,7 +11,7 @@
       "tags": ["Top Rated", "Best Seller", "Phone"],
       "rate": 4.5,
       "lastModified": "2024-10-25",
-      "image": "../public/assets/products/8834.jpg_wh860.jpg"
+      "image": "/assets/products/8834.jpg_wh860.jpg"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "tags": ["Wireless", "Audio", "Music"],
       "rate": 4.8,
       "lastModified": "2024-10-20",
-      "image": "../public/assets/products/8834.jpg_wh860.jpg"
+      "image": "/assets/products/8834.jpg_wh860.jpg"
     }
   ]
   

@@ -3,7 +3,7 @@ export const orders = [
       id: "123456",
       orderNumber: "#123456",
       product: {
-        image: "/placeholder.svg?height=60&width=60",
+        image: "/assets/products/8834.jpg_wh860.jpg",
         sku: "123456FR"
       },
       category: {
@@ -21,7 +21,7 @@ export const orders = [
       id: "154844",
       orderNumber: "#154844",
       product: {
-        image: "/placeholder.svg?height=60&width=60",
+        image: "/assets/products/8834.jpg_wh860.jpg",
         sku: "598741FR"
       },
       category: {
@@ -40,7 +40,7 @@ export const orders = [
       id: "202587",
       orderNumber: "#202587",
       product: {
-        image: "/placeholder.svg?height=60&width=60",
+        image: "/assets/products/8834.jpg_wh860.jpg",
         sku: "485912TY"
       },
       category: {
@@ -59,7 +59,7 @@ export const orders = [
       id: "300411",
       orderNumber: "#300411",
       product: {
-        image: "/placeholder.svg?height=60&width=60",
+        image: "/assets/products/8834.jpg_wh860.jpg",
         sku: "365487RT"
       },
       category: {

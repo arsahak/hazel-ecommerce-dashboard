@@ -11,7 +11,7 @@ const users = [
   {
     email: "milon@gmail.com",
     password: "12345",
-    company: "Milon Tech",
+    company: "Milon Tech ",
     name: "NG Milon",
     image:
       "https://i.ibb.co.com/3hRmXDJ/young-bearded-man-with-striped-shirt-273609-5677.jpg",

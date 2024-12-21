@@ -167,6 +167,7 @@ import { useEffect, useState } from "react";
 import { FiEdit, FiMoreVertical, FiSearch, FiStar } from "react-icons/fi";
 import { Pagination } from "../shared/Pagination/Pagination";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import Link from "next/link";
 // import {productImage} from "@/public/assets/products/8834.jpg_wh860.jpg"
 
 type Product = {
@@ -246,12 +247,14 @@ export default function ProductList() {
     <div className="mt-5">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
         <div className="flex flex-col lg:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
-          <button
-            onClick={handleAddNewProduct}
-            className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 w-full sm:w-auto"
-          >
-            <span className="text-xl">+</span> Add new product
-          </button>
+          <Link href="/products/add-product">
+            <button
+              // onClick={handleAddNewProduct}
+              className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 w-full sm:w-auto"
+            >
+              <span className="text-xl">+</span> Add new product
+            </button>
+          </Link>
           <button
             onClick={handleExportCSV}
             className="text-blue-600 border border-blue-600 hover:bg-blue-50 px-4 py-2 rounded-md w-full sm:w-auto text-center"

@@ -133,6 +133,7 @@ const recentSells = [
     avatar: "/placeholder.svg?height=40&width=40",
     tickets: 2,
     amount: 175,
+    img: "/assets/images.png"
   },
   {
     name: "Alma Gibbs",
@@ -141,6 +142,7 @@ const recentSells = [
     tickets: 2,
     amount: 175,
     highlighted: true,
+    img: "/assets/images.png"
   },
   {
     name: "Eunice Brown",
@@ -148,6 +150,7 @@ const recentSells = [
     avatar: "/placeholder.svg?height=40&width=40",
     tickets: 1,
     amount: 100,
+    img: "/assets/images.png"
   },
   {
     name: "Edna Marsh",
@@ -155,6 +158,7 @@ const recentSells = [
     avatar: "/placeholder.svg?height=40&width=40",
     tickets: 1,
     amount: 100,
+    img: "/assets/images.png"
   },
 ]
 
@@ -210,7 +214,7 @@ export default function RecentSells() {
               <div className="flex items-center gap-3">
               <div className="relative h-10 w-10 rounded-full overflow-hidden">
                   <Image
-                    src={sell.avatar}
+                    src={sell.img}
                     alt={sell.name}
                     fill
                     className="object-cover"

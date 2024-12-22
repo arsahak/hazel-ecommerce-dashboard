@@ -462,6 +462,7 @@ export default function ProductList() {
                   <div className="flex items-center gap-2">
                     <button
                       className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg "
+                      onClick={() => router.push(`/products/edit-product/${product.id}`)}
                     >
                       <FiEdit className="text-[#D5AD45] size-4" />
                     </button>

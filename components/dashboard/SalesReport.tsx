@@ -65,91 +65,20 @@
 
 
 
-
-import React from 'react';
-import { LineChart } from '../shared/LineChart/LineChart';
-import { Card } from '@nextui-org/react';
-import { CircularProgress } from './CircularProgress';
+import { EmailCampaign } from "./EmailCampaign";
+import { EventGoals } from "./EventGoals";
+import RecentSells from "./RecentSells";
 
 const SalesReport = () => {
   return (
-    <div>
-      <div className="grid gap-4 p-4 md:grid-cols-3">
-        {/* Net Sales Card */}
-        <Card className="p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-sm font-medium text-muted-foreground">NET SALES</h2>
-            <button className="text-sm text-muted-foreground hover:text-primary">•••</button>
-          </div>
-          <div className="space-y-1">
-            <div className="space-y-0.5">
-              <div className="text-2xl font-bold text-primary">$ 28 745</div>
-              <div className="text-sm text-muted-foreground">This week:</div>
-            </div>
-            <div className="text-sm text-muted-foreground">
-              Previous week: $ 12 980
-            </div>
-          </div>
-          <div className="h-[200px] mt-4">
-            <LineChart
-              data={[4000, 9000, 6000, 9000, 4000, 15000, 13000]}
-              labels={["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]}
-              previousData={[3000, 7000, 5000, 8000, 3000, 12000, 11000]}
-            />
-          </div>
-        </Card>
 
-        {/* Earlybird Ticket Card */}
-        <Card className="p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-sm font-medium text-muted-foreground">EARLYBIRD TICKET</h2>
-            <button className="text-sm text-muted-foreground hover:text-primary">•••</button>
-          </div>
-          <div className="flex flex-col items-center justify-center space-y-6">
-            <CircularProgress value={78} />
-            <div className="grid grid-cols-2 gap-4 w-full">
-              <div className="text-center">
-                <div className="text-sm text-muted-foreground">Gross</div>
-                <div className="text-xl font-bold">$2300</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm text-muted-foreground">Online</div>
-                <div className="text-xl font-bold">$7500</div>
-              </div>
-            </div>
-          </div>
-        </Card>
-
-        {/* Gross Sells Card */}
-        <Card className="p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-sm font-medium text-muted-foreground">GROSS SELLS</h2>
-            <button className="text-sm text-muted-foreground hover:text-primary">•••</button>
-          </div>
-          <div className="space-y-8">
-            <div>
-              <div className="text-3xl font-bold text-primary">$2,300</div>
-              <div className="h-[60px] mt-2">
-                <LineChart
-                  data={[2000, 2500, 3250, 2800, 2300]}
-                  minimal
-                  color="#f1f5f9"
-                />
-              </div>
-            </div>
-            <div>
-              <div className="text-sm text-muted-foreground mb-1">ONLINE SELLS</div>
-              <div className="text-2xl font-bold">$7,500</div>
-              <div className="h-[60px] mt-2">
-                <LineChart
-                  data={[7000, 7800, 7200, 7500, 7300]}
-                  minimal
-                  color="#f1f5f9"
-                />
-              </div>
-            </div>
-          </div>
-        </Card>
+    <div className="grid gap-4 md:grid-cols-6">
+      <div className="col-span-3"><RecentSells /></div>
+      <div className="col-span-3">
+        {/* <div className="flex gap-4 w-full h-full"> */}
+          <EventGoals />
+          {/* <EmailCampaign /> */}
+        {/* </div> */}
       </div>
     </div>
   );

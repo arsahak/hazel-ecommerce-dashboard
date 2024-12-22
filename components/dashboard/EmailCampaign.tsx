@@ -2,14 +2,15 @@
 // import { ArrowUpIcon } from 'lucide-react'
 
 import { Card } from "@nextui-org/react";
+import { HiOutlineDotsVertical } from "react-icons/hi";
 import { IoArrowUpCircleOutline } from "react-icons/io5";
 
 export function EmailCampaign() {
   return (
-    <Card className="p-6">
+    <Card className="p-6 w-full h-full">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-sm font-medium">EMAIL CAMPAIGN</h2>
-        <button className="text-muted-foreground hover:text-foreground">•••</button>
+        <button className="text-sm text-muted-foreground text-gray-400 hover:text-primary"><HiOutlineDotsVertical /></button>
       </div>
 
       <div className="space-y-6">

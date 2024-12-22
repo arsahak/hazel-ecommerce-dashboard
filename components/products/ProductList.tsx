@@ -168,6 +168,7 @@ import { FiEdit, FiMoreVertical, FiSearch, FiStar } from "react-icons/fi";
 import { Pagination } from "../shared/Pagination/Pagination";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 // import {productImage} from "@/public/assets/products/8834.jpg_wh860.jpg"
 
 type Product = {
@@ -184,6 +185,7 @@ type Product = {
 };
 
 export default function ProductList() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<
     "all" | "published" | "drafts" | "trash"
   >("all");
@@ -222,10 +224,6 @@ export default function ProductList() {
     console.log("Exporting CSV...");
   };
 
-  const handleAddNewProduct = () => {
-    console.log("Adding new product...");
-  };
-
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Searching...");
@@ -241,6 +239,9 @@ export default function ProductList() {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+  };
+  const handleDeleteProduct= (id: number) => {
+    console.log("Deleting product...");
   };
 
   return (
@@ -461,13 +462,13 @@ export default function ProductList() {
                   <div className="flex items-center gap-2">
                     <button
                       className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg "
-                    // onClick={() => router.push(`/client-edit`)}
                     >
                       <FiEdit className="text-[#D5AD45] size-4" />
                     </button>
                     <button
                       className="bg-red-100 hover:bg-red-200 p-1.5 rounded-lg"
                     // onClick={() => setClientDeletedModal(!clientDeletedModal)}
+                    onClick={()=>handleDeleteProduct(product?.id)}
                     >
                       <RiDeleteBin6Fill className="text-red-500 size-4" />
                     </button>

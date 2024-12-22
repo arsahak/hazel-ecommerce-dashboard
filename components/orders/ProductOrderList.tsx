@@ -286,8 +286,10 @@ import { FiEdit } from "react-icons/fi"
 // import { ChevronDown, ChevronUp } from 'lucide-react'
 import { Pagination } from "../shared/Pagination/Pagination"
 import { BiChevronDown, BiChevronUp } from "react-icons/bi"
+import { useRouter } from "next/navigation"
 
 export default function ProductOrderTable() {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1)
   const [expandedRows, setExpandedRows] = useState<string[]>([])
   const totalPages = 2
@@ -423,10 +425,7 @@ export default function ProductOrderTable() {
                   <div className="flex items-center gap-2">
                     <button
                       className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        // router.push(`/client-edit`)
-                      }}
+                      onClick={() => router.push(`/orders/edit-order/${order.id}`)}
                     >
                       <FiEdit className="text-[#D5AD45] size-4" />
                     </button>

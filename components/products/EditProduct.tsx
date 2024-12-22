@@ -23,7 +23,7 @@ interface FormData {
   color: string
 }
 
-export default function AddProduct() {
+export default function EditProduct() {
   const router = useRouter()
   const [formData, setFormData] = useState<FormData>({
     title: '',
@@ -63,8 +63,8 @@ export default function AddProduct() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
-      <h1 className="text-2xl font-bold mb-6">Add New Product</h1>
+    <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
+      <h1 className="text-2xl font-bold mb-6">Edit Product</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -292,7 +292,7 @@ export default function AddProduct() {
             />
           </div>
 
-          <div className="">
+          <div className="md:col-span-2">
             <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">Product Image</label>
             <input
               type="file"
@@ -300,8 +300,7 @@ export default function AddProduct() {
               name="image"
               onChange={handleFileChange}
               accept="image/*"
-              multiple={true}
-              className="w-full px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -319,7 +318,7 @@ export default function AddProduct() {
             type="submit"
             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            Add Product
+            Edit Product
           </button>
         </div>
       </form>

@@ -2,6 +2,9 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { MultipleImageUpload } from '../shared/MultipleImageUpload/MultipleImageUpload'
+import { FileUpload } from '../shared/FileUpload/FileUpload'
+import ColorPicker from '../shared/ui/ColorPicker'
 
 interface FormData {
   title: string
@@ -56,6 +59,11 @@ export default function EditProduct() {
     }
   }
 
+  const handleFileSelect = (file: File) => {
+    console.log('Selected file:', file)
+    // Here you would typically handle the actual file upload to your server
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Form submitted:', formData)
@@ -63,10 +71,15 @@ export default function EditProduct() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
-      <h1 className="text-2xl font-bold mb-6">Edit Product</h1>
+    <div className=" mt-10 p-6 bg-white rounded-lg shadow">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+          <FileUpload onFileSelect={handleFileSelect} label="Feature Image"/>
+          </div>
+          <div>
+          <MultipleImageUpload label="Gallery Images"/>
+          </div>
           <div>
             <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">Title</label>
             <input
@@ -75,7 +88,7 @@ export default function EditProduct() {
               name="title"
               value={formData.title}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -88,7 +101,7 @@ export default function EditProduct() {
               name="articleNumber"
               value={formData.articleNumber}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -101,7 +114,7 @@ export default function EditProduct() {
               value={formData.description}
               onChange={handleInputChange}
               rows={4}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -115,7 +128,7 @@ export default function EditProduct() {
               value={formData.regularPrice}
               onChange={handleInputChange}
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -129,7 +142,7 @@ export default function EditProduct() {
               value={formData.discountPrice}
               onChange={handleInputChange}
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
 
@@ -142,7 +155,7 @@ export default function EditProduct() {
               value={formData.retailPrice}
               onChange={handleInputChange}
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -154,7 +167,7 @@ export default function EditProduct() {
               name="category"
               value={formData.category}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             >
               <option value="">Select a category</option>
@@ -172,7 +185,7 @@ export default function EditProduct() {
               name="quantity"
               value={formData.quantity}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -185,7 +198,7 @@ export default function EditProduct() {
               name="sold"
               value={formData.sold}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -198,7 +211,7 @@ export default function EditProduct() {
               name="shipping"
               value={formData.shipping}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -212,7 +225,7 @@ export default function EditProduct() {
               value={formData.laborCost}
               onChange={handleInputChange}
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -226,7 +239,7 @@ export default function EditProduct() {
               value={formData.shippingCost}
               onChange={handleInputChange}
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -240,7 +253,7 @@ export default function EditProduct() {
               value={formData.fabricAPrice}
               onChange={handleInputChange}
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -254,7 +267,7 @@ export default function EditProduct() {
               value={formData.fabricBPrice}
               onChange={handleInputChange}
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
@@ -266,7 +279,7 @@ export default function EditProduct() {
               name="size"
               value={formData.size}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             >
               <option value="">Select a size</option>
@@ -281,18 +294,10 @@ export default function EditProduct() {
 
           <div>
             <label htmlFor="color" className="block text-sm font-medium text-gray-700 mb-1">Color</label>
-            <input
-              type="text"
-              id="color"
-              name="color"
-              value={formData.color}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
+            <ColorPicker />
           </div>
 
-          <div className="md:col-span-2">
+          {/* <div className="">
             <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">Product Image</label>
             <input
               type="file"
@@ -300,23 +305,24 @@ export default function EditProduct() {
               name="image"
               onChange={handleFileChange}
               accept="image/*"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              multiple={true}
+              className="w-full px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               required
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="flex justify-end space-x-4">
           <button
             type="button"
             onClick={() => router.push('/products')}
-            className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:border-primary focus:outline-none hover:text-primary"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary"
           >
             Edit Product
           </button>

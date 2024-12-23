@@ -13,7 +13,7 @@ interface PaginationProps {
             onClick={() => onPageChange(page)}
             className={`w-8 h-8 flex items-center justify-center rounded ${
               currentPage === page
-                ? 'bg-blue-600 text-white'
+                ? 'bg-primary text-white'
                 : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
             }`}
           >

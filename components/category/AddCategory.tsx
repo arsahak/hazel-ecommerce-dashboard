@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 interface FormData {
     name: string
     description: string
-    parentCategory: string
+    slug: string
   }
 
 export default function AddCategory() {
@@ -14,7 +14,7 @@ export default function AddCategory() {
     const [formData, setFormData] = useState<FormData>({
         name: '',
         description: '',
-        parentCategory: '',
+        slug: '',
     })
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -35,7 +35,7 @@ export default function AddCategory() {
     }
 
     return (
-        <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
+        <div className=" mt-10 p-6 bg-white rounded-lg shadow">
             <h1 className="text-2xl font-bold mb-6">Add New Category</h1>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -47,7 +47,19 @@ export default function AddCategory() {
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="slug" className="block text-sm font-medium text-gray-700 mb-1">Slug</label>
+                        <input
+                            type="text"
+                            id="slug"
+                            name="slug"
+                            value={formData.slug}
+                            onChange={handleInputChange}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                             required
                         />
                     </div>
@@ -60,40 +72,23 @@ export default function AddCategory() {
                             value={formData.description}
                             onChange={handleInputChange}
                             rows={4}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                             required
                         />
-                    </div>
-
-                    <div>
-                        <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                        <select
-                            id="parentCategory"
-                            name="parentCategory"
-                            value={formData.parentCategory}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                            <option value="">Select a parent category</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="clothing">Clothing</option>
-                            <option value="books">Books</option>
-                            <option value="home">Home & Garden</option>
-                        </select>
                     </div>
                 </div>
 
                 <div className="flex justify-end space-x-4">
                     <button
                         type="button"
-                        onClick={() => router.push('/products')}
-                        className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onClick={() => router.push('/category')}
+                        className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                         Cancel
                     </button>
                     <button
                         type="submit"
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/85 focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                         Add Category
                     </button>

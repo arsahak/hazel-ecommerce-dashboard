@@ -23,9 +23,9 @@ interface Message {
 export default function ChatInterface() {
 
     return (
-        <div className='flex gap-5 justify-between  mt-5'>
+        <div className='flex flex-col lg:flex-row gap-5 justify-between  mt-5'>
             <SearchChat/>
-            <div className="max-w-2xl mx-auto h-screen bg-white flex flex-col">
+            <div className="lg:w-[50%] h-screen bg-white flex flex-col">
                 {/* Header */}
                 <div className="flex items-center p-4 border-b">
                     <div className="flex items-center flex-1">
@@ -98,9 +98,9 @@ export default function ChatInterface() {
                 <div className="p-4 border-t">
                     <div className="flex items-center bg-gray-100 rounded-full p-1">
                         <div className="flex space-x-1 px-2">
-                            <button className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200">
+                            {/* <button className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200">
                                 <GiPaperClip className="w-5 h-5 text-gray-500" />
-                            </button>
+                            </button> */}
                             <button className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200">
                                 <BiSmile className="w-5 h-5 text-gray-500" />
                             </button>

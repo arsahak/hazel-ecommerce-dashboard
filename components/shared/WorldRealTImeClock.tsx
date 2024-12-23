@@ -30,7 +30,7 @@ const WorldRealTimeClock: React.FC = () => {
 
   return (
     <div className="flex justify-center items-center p-4 ">
-      <div className="text-xl font-bold text-gray-800">{formattedTime}</div>
+      <div className="md:text-md lg:text-xl font-bold text-gray-800">{formattedTime}</div>
     </div>
   );
 };

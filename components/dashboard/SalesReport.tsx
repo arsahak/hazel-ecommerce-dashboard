@@ -72,9 +72,9 @@ import RecentSells from "./RecentSells";
 const SalesReport = () => {
   return (
 
-    <div className="grid gap-4 md:grid-cols-6">
-      <div className="col-span-3"><RecentSells /></div>
-      <div className="col-span-3">
+    <div className="grid gap-4 grid-cols-1 lg:grid-cols-6 overflow-hidden">
+      <div className="lg:col-span-3"><RecentSells /></div>
+      <div className="lg:col-span-3">
         {/* <div className="flex gap-4 w-full h-full"> */}
           <EventGoals />
           {/* <EmailCampaign /> */}

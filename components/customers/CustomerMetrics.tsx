@@ -1,6 +1,6 @@
 export default function CustomerMetrics() {
     return (
-      <div className="grid gap-6 pt-5 md:grid-cols-4 ">
+      <div className="grid gap-6 pt-5 md:grid-cols-3 lg:grid-cols-4 ">
         {/* Metric Cards */}
         <div className="bg-white h-48 rounded-lg p-6 shadow-sm">
           <div className="flex flex-col gap-4">

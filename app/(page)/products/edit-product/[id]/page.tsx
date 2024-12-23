@@ -1,7 +1,9 @@
 import EditProduct from "@/components/products/EditProduct";
 import WorldRealTimeClock from "@/components/shared/WorldRealTImeClock";
-
-const page = ({ params }) => {
+interface Params {
+    id: string;
+  }
+const page = ({ params }: { params: Params }) => {
     const { id } = params;
     return (
         <div className="bg-[#f8f8f8] mx-10 ">

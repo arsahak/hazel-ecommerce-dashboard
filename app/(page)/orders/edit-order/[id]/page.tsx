@@ -1,7 +1,10 @@
 import EditOrder from "@/components/orders/EditOrder";
 import WorldRealTimeClock from "@/components/shared/WorldRealTImeClock";
+interface Params {
+    id: string;
+  }
 
-const page = ({params}) => {
+const page = ({ params }: { params: Params }) => {
     const {id} = params;
     return (
         <div className="bg-[#f8f8f8] mx-10">

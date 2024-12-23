@@ -45,7 +45,7 @@ const EditOrder = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" space-y-6">
+    <form onSubmit={handleSubmit} className="bg-white p-6 mt-5 space-y-6">
       <h1 className="text-xl font-semibold mb-4">Edit Order Details</h1>
 
       <div>

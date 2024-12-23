@@ -10,7 +10,7 @@ import { HiOutlineDotsVertical } from 'react-icons/hi';
 const ShopDetailsSection = () => {
   return (
     <div>
-      <div className="grid gap-4 py-4 grid-cols-1 lg:grid-cols-6">
+      <div className="grid gap-4 py-4 grid-cols-1 lg:grid-cols-6 overflow-hidden">
         {/* Net Sales Card */}
         <Card className="p-6 lg:col-span-3">
           <div className="flex justify-between items-center mb-4">

@@ -35,7 +35,7 @@ export default function EditCategory() {
     }
 
     return (
-        <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
+        <div className=" mt-10 p-6 bg-white rounded-lg shadow">
             <h1 className="text-2xl font-bold mb-6">Edit Category</h1>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -47,7 +47,7 @@ export default function EditCategory() {
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                             required
                         />
                     </div>
@@ -60,7 +60,7 @@ export default function EditCategory() {
                             value={formData.description}
                             onChange={handleInputChange}
                             rows={4}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                             required
                         />
                     </div>
@@ -72,7 +72,7 @@ export default function EditCategory() {
                             name="parentCategory"
                             value={formData.parentCategory}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                         >
                             <option value="">Select a parent category</option>
                             <option value="electronics">Electronics</option>
@@ -86,14 +86,14 @@ export default function EditCategory() {
                 <div className="flex justify-end space-x-4">
                     <button
                         type="button"
-                        onClick={() => router.push('/products')}
-                        className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onClick={() => router.push('/category')}
+                        className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                         Cancel
                     </button>
                     <button
                         type="submit"
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/85 focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                         Edit Category
                     </button>

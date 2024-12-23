@@ -127,7 +127,7 @@ const OrderView = () => {
   return (
     <div className="">
       <div className="bg-white py-6 px-6 mt-6 mb-3 flex items-center justify-between">
-        <h1 className="text-4xl font-semibold ">Orders</h1>
+        <h1 className="text-2xl lg:text-4xl font-semibold ">Orders</h1>
         <div className="">
           <WorldRealTimeClock />
         </div>
@@ -153,7 +153,7 @@ const OrderView = () => {
       </div>
       <div className="w-full flex flex-wrap gap-5 items-center">
         {/* Average Rate Section */}
-        <div className="bg-white xl:w-[30%] rounded-lg shadow-sm p-6">
+        <div className="bg-white w-full md:w-[40%] xl:w-[30%] rounded-lg shadow-sm p-6">
           <h2 className="text-xl font-semibold mb-4">Average Rate (%)</h2>
           <div className="space-y-4">
             <div className="space-y-2">
@@ -180,7 +180,7 @@ const OrderView = () => {
         {/* orders info card */}
         {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> */}
           {/* Completed Card */}
-          <div className="bg-white xl:w-[15%]  rounded-lg shadow-sm p-6">
+          <div className="bg-white w-full md:w-[40%] xl:w-[15%]  rounded-lg shadow-sm p-6">
             <div className="flex justify-between items-start">
               <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-blue-100">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -204,7 +204,7 @@ const OrderView = () => {
           </div>
 
           {/* Confirmed Card */}
-          <div className="bg-white xl:w-[15%] rounded-lg shadow-sm p-6">
+          <div className="bg-white w-full md:w-[40%] xl:w-[15%] rounded-lg shadow-sm p-6">
             <div className="flex justify-between items-start">
               <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-emerald-100">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -231,7 +231,7 @@ const OrderView = () => {
           </div>
 
           {/* Canceled Card */}
-          <div className="bg-white xl:w-[15%] rounded-lg shadow-sm p-6">
+          <div className="bg-white w-full md:w-[40%] xl:w-[15%] rounded-lg shadow-sm p-6">
             <div className="flex justify-between items-start">
               <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-red-100">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -254,7 +254,7 @@ const OrderView = () => {
           </div>
 
           {/* Refunded Card */}
-          <div className="bg-white xl:w-[15%] rounded-lg shadow-sm p-6">
+          <div className="bg-white w-full md:w-[40%] xl:w-[15%] rounded-lg shadow-sm p-6">
             <div className="flex justify-between items-start">
               <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

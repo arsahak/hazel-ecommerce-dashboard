@@ -36,7 +36,7 @@ const SAMPLE_CHATS: Chat[] = [
     user: {
       id: '1',
       name: 'Luy Robin',
-      avatar: '/placeholder.svg',
+      avatar: '/assets/images.png', 
       status: 'writes'
     },
     lastMessage: {
@@ -51,7 +51,7 @@ const SAMPLE_CHATS: Chat[] = [
     user: {
       id: '2',
       name: 'Jared Sunn',
-      avatar: '/placeholder.svg',
+      avatar: '/assets/images.png',
       status: 'records voice message'
     },
     lastMessage: {
@@ -70,7 +70,7 @@ const SAMPLE_CHATS: Chat[] = [
     user: {
       id: '3',
       name: 'Nika Jerrardo',
-      avatar: '/placeholder.svg',
+      avatar: '/assets/images.png',
       lastSeen: '3 hours ago'
     },
     lastMessage: {
@@ -97,18 +97,8 @@ export function SearchChat() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white rounded-2xl shadow-sm">
+    <div className="lg:w-[50%] bg-white rounded-2xl shadow-sm">
       <div className="p-4">
-        <div className="flex items-center justify-between mb-6">
-          <div className="space-y-1">
-            <h1 className="text-xl font-semibold text-gray-900">Chats</h1>
-            <p className="text-sm text-gray-500">Recent Chats</p>
-          </div>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600 transition-colors">
-            + Create New Chat
-          </button>
-        </div>
-
         <div className="flex items-center gap-4 mb-6">
           <div className="relative flex-1">
             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />

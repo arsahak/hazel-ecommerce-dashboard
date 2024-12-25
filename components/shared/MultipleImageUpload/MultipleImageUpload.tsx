@@ -20,7 +20,7 @@
 
 //   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
 //     const selectedFiles = Array.from(event.target.files || [])
-    
+
 //     if (files.length + selectedFiles.length > MAX_FILES) {
 //       setShowWarning(true)
 //       setTimeout(() => setShowWarning(false), 3000) // Hide warning after 3 seconds
@@ -47,11 +47,11 @@
 //     let progress = 0
 //     const interval = setInterval(() => {
 //       progress += 10
-//       setFiles(prev => 
-//         prev.map(file => 
-//           file.id === fileId 
-//             ? { 
-//                 ...file, 
+//       setFiles(prev =>
+//         prev.map(file =>
+//           file.id === fileId
+//             ? {
+//                 ...file,
 //                 progress,
 //                 status: progress === 100 ? 'complete' : 'uploading'
 //               }
@@ -94,7 +94,7 @@
 //                 <div className="absolute inset-x-4 bottom-4">
 //                   <div className="text-sm mb-2">Uploading...</div>
 //                   <div className="h-1 bg-gray-300 rounded-full overflow-hidden">
-//                     <div 
+//                     <div
 //                       className="h-full bg-blue-500 transition-all duration-300"
 //                       style={{ width: `${file.progress}%` }}
 //                     />
@@ -147,92 +147,102 @@
 //   )
 // }
 
-'use client'
+"use client";
 
-import { useState, useRef } from 'react'
-import { FiPlus, FiImage, FiAlertCircle } from 'react-icons/fi'
-import { RiDeleteBin6Line } from 'react-icons/ri'
+import { useRef, useState } from "react";
+import { FiAlertCircle, FiImage, FiPlus } from "react-icons/fi";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 interface UploadingFile {
-  id: string
-  file: File
-  preview: string
-  progress: number
-  status: 'uploading' | 'error' | 'complete'
+  id: string;
+  file: File;
+  preview: string;
+  progress: number;
+  status: "uploading" | "error" | "complete";
 }
 
 interface MultipleImageUploadProps {
-  label: string
-  maxFiles?: number
-  onFilesChange?: (files: File[]) => void
+  label: string;
+  maxFiles?: number;
+  onFilesChange?: (files: File[]) => void;
 }
 
-export function MultipleImageUpload({ label, maxFiles = 10, onFilesChange }: MultipleImageUploadProps) {
-  const [files, setFiles] = useState<UploadingFile[]>([])
-  const [showWarning, setShowWarning] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
+export function MultipleImageUpload({
+  label,
+  maxFiles = 10,
+  onFilesChange,
+}: MultipleImageUploadProps) {
+  const [files, setFiles] = useState<UploadingFile[]>([]);
+  const [showWarning, setShowWarning] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFiles = Array.from(event.target.files || [])
-    
+    const selectedFiles = Array.from(event.target.files || []);
+
     if (files.length + selectedFiles.length > maxFiles) {
-      setShowWarning(true)
-      setTimeout(() => setShowWarning(false), 3000) // Hide warning after 3 seconds
-      return
+      setShowWarning(true);
+      setTimeout(() => setShowWarning(false), 3000); // Hide warning after 3 seconds
+      return;
     }
 
-    const newFiles = selectedFiles.map(file => ({
+    const newFiles = selectedFiles.map((file) => ({
       id: Math.random().toString(36).substring(7),
       file,
       preview: URL.createObjectURL(file),
       progress: 0,
-      status: 'uploading' as const
-    }))
+      status: "uploading" as const,
+    }));
 
-    setFiles(prev => {
-      const updatedFiles = [...prev, ...newFiles]
-      onFilesChange?.(updatedFiles.map(f => f.file))
-      return updatedFiles
-    })
+    setFiles((prev) => {
+      const updatedFiles = [...prev, ...newFiles];
+      onFilesChange?.(updatedFiles.map((f) => f.file));
+      return updatedFiles;
+    });
 
     // Simulate upload progress for each file
-    newFiles.forEach(file => {
-      simulateUpload(file.id)
-    })
-  }
+    newFiles.forEach((file) => {
+      simulateUpload(file.id);
+    });
+  };
 
   const simulateUpload = (fileId: string) => {
-    let progress = 0
+    let progress = 0;
     const interval = setInterval(() => {
-      progress += 10
-      setFiles(prev => {
-        const updatedFiles = prev.map(file => 
-          file.id === fileId 
-            ? { 
-                ...file, 
+      progress += 10;
+      setFiles((prev) => {
+        const updatedFiles = prev.map((file) =>
+          file.id === fileId
+            ? {
+                ...file,
                 progress,
-                status: progress === 100 ? 'complete' : 'uploading'
+                status:
+                  progress === 100
+                    ? ("complete" as const)
+                    : ("uploading" as const),
               }
             : file
-        )
-        onFilesChange?.(updatedFiles.map(f => f.file))
-        return updatedFiles
-      })
-      if (progress === 100) clearInterval(interval)
-    }, 500)
-  }
+        );
+        onFilesChange?.(updatedFiles.map((f) => f.file)); // Notify parent component if needed
+        return updatedFiles;
+      });
+      if (progress === 100) clearInterval(interval);
+    }, 500);
+  };
 
   const removeFile = (fileId: string) => {
-    setFiles(prev => {
-      const updatedFiles = prev.filter(file => file.id !== fileId)
-      onFilesChange?.(updatedFiles.map(f => f.file))
-      return updatedFiles
-    })
-  }
+    setFiles((prev) => {
+      const updatedFiles = prev.filter((file) => file.id !== fileId);
+      onFilesChange?.(updatedFiles.map((f) => f.file));
+      return updatedFiles;
+    });
+  };
 
   return (
     <div className="">
-      <label htmlFor="file-upload" className="block text-sm font-medium text-gray-700 mb-2">
+      <label
+        htmlFor="file-upload"
+        className="block text-sm font-medium text-gray-700 mb-2"
+      >
         {label}
       </label>
       {showWarning && (
@@ -243,12 +253,12 @@ export function MultipleImageUpload({ label, maxFiles = 10, onFilesChange }: Mul
       )}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        {files.map(file => (
+        {files.map((file) => (
           <div
             key={file.id}
             className="relative aspect-square rounded-lg border border-gray-400 overflow-hidden group"
           >
-            {file.status === 'uploading' ? (
+            {file.status === "uploading" ? (
               <div className="absolute inset-0 bg-white p-4">
                 <img
                   src={file.preview}
@@ -258,14 +268,14 @@ export function MultipleImageUpload({ label, maxFiles = 10, onFilesChange }: Mul
                 <div className="absolute inset-x-4 bottom-4">
                   <div className="text-sm mb-2">Uploading...</div>
                   <div className="h-1 bg-gray-300 rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className="h-full bg-blue-500 transition-all duration-300"
                       style={{ width: `${file.progress}%` }}
                     />
                   </div>
                 </div>
               </div>
-            ) : file.status === 'error' ? (
+            ) : file.status === "error" ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-white">
                 <FiImage className="w-8 h-8 text-red-500 mb-2" />
                 <span className="text-sm text-red-500">{file.file.name}</span>
@@ -308,6 +318,5 @@ export function MultipleImageUpload({ label, maxFiles = 10, onFilesChange }: Mul
         />
       </div>
     </div>
-  )
+  );
 }
-

@@ -12,7 +12,7 @@ import {
   MdOutlineProductionQuantityLimits,
   MdPayments,
 } from "react-icons/md";
-import { RiDashboardHorizontalFill, RiEyeOffFill } from "react-icons/ri";
+import { RiDashboardHorizontalFill } from "react-icons/ri";
 
 const sideBarData = [
   {
@@ -47,11 +47,11 @@ const sideBarData = [
     slug: "/transactions",
     title: "Transactions",
   },
-  {
-    icon: <RiEyeOffFill className="size-7 text-gray-700" />,
-    slug: "/deactive-customers",
-    title: "Deactive Customers",
-  },
+  // {
+  //   icon: <RiEyeOffFill className="size-7 text-gray-700" />,
+  //   slug: "/deactive-customers",
+  //   title: "Deactive Customers",
+  // },
   {
     icon: <FaGetPocket className="size-7 text-gray-700" />,
     slug: "/retailer-request",

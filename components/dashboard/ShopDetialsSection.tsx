@@ -1,11 +1,8 @@
-
-import React from 'react';
-import { LineChart } from '../shared/LineChart/LineChart';
-import { Card } from '@nextui-org/react';
-import { CircularProgress } from './CircularProgress';
-import { BiChevronDown } from 'react-icons/bi';
-import { CgMoreVertical } from 'react-icons/cg';
-import { HiOutlineDotsVertical } from 'react-icons/hi';
+import { Card } from "@nextui-org/react";
+import { BiChevronDown } from "react-icons/bi";
+import { HiOutlineDotsVertical } from "react-icons/hi";
+import { LineChart } from "../shared/LineChart/LineChart";
+import { CircularProgress } from "./CircularProgress";
 
 const ShopDetailsSection = () => {
   return (
@@ -14,8 +11,12 @@ const ShopDetailsSection = () => {
         {/* Net Sales Card */}
         <Card className="p-6 lg:col-span-3 shadow-none rounded">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-sm font-medium text-muted-foreground">NET SALES</h2>
-            <button className="text-sm text-muted-foreground text-gray-400 hover:text-primary"><HiOutlineDotsVertical /></button>
+            <h2 className="text-sm font-medium text-muted-foreground">
+              NET SALES
+            </h2>
+            <button className="text-sm text-muted-foreground text-gray-400 hover:text-primary">
+              <HiOutlineDotsVertical />
+            </button>
           </div>
           <div className="space-y-1">
             <div className="space-y-0.5">
@@ -31,6 +32,7 @@ const ShopDetailsSection = () => {
               data={[4000, 9000, 6000, 9000, 4000, 15000, 13000]}
               labels={["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]}
               previousData={[3000, 7000, 5000, 8000, 3000, 12000, 11000]}
+              color=""
             />
           </div>
         </Card>
@@ -46,7 +48,9 @@ const ShopDetailsSection = () => {
               {/* <button className="text-gray-400 hover:text-gray-600">
                 <CgMoreVertical className="h-5 w-5" />
               </button> */}
-              <button className="text-sm text-muted-foreground text-gray-400 hover:text-primary"><HiOutlineDotsVertical /></button>
+              <button className="text-sm text-muted-foreground text-gray-400 hover:text-primary">
+                <HiOutlineDotsVertical />
+              </button>
             </div>
 
             <div className="flex flex-col items-center space-y-8">
@@ -78,9 +82,9 @@ const ShopDetailsSection = () => {
               <div className="h-[60px]">
                 <LineChart
                   data={[5000, 10200, 9250, 20800, 5300]}
-                  previousData={[3000, ,3000, 34000, 2000]}
+                  previousData={[3000, , 3000, 34000, 2000]}
                   color="#FAFAFA"
-                  className="text-white"
+                  // className="text-white"
                   minimal
                 />
               </div>
@@ -92,7 +96,6 @@ const ShopDetailsSection = () => {
                   <div className="text-sm text-gray-500 mb-1">ONLINE SELLS</div>
                   <div className="text-xs text-blue-500">Rough cost</div>
                   <div className="text-xl font-semibold">$7,500</div>
-                  
                 </div>
                 <div className="h-[60px]">
                   <LineChart
@@ -111,8 +114,6 @@ const ShopDetailsSection = () => {
 };
 
 export default ShopDetailsSection;
-
-
 
 // <div className=" flex items-stretch justify-between gap-6">
 //   <div className="bg-white py-6 px-6 my-3 w-[65%]">

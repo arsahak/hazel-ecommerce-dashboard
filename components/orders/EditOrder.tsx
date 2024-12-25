@@ -4,26 +4,26 @@ import { useState } from "react";
 
 const EditOrder = () => {
   const [formData, setFormData] = useState({
-    customerName: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '+1 234 567 890',
-    shippingAddress: '123 Main St,\nApt 4B\nNew York, NY 10001',
+    customerName: "John Doe",
+    email: "john.doe@example.com",
+    phone: "+1 234 567 890",
+    shippingAddress: "123 Main St,\nApt 4B\nNew York, NY 10001",
     orderTimeline: {
-      ordered: 'Mar 15, 2024',
-      processed: 'Mar 16, 2024',
-      shipped: 'Mar 17, 2024',
+      ordered: "Mar 15, 2024",
+      processed: "Mar 16, 2024",
+      shipped: "Mar 17, 2024",
     },
-    paymentMethod: 'Credit Card',
-    cardNumber: '**** 1234',
-    paymentStatus: 'Paid',
+    paymentMethod: "Credit Card",
+    cardNumber: "**** 1234",
+    paymentStatus: "Paid",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
 
     // Handle nested object updates for the order timeline
-    if (name.includes('orderTimeline.')) {
-      const key = name.split('.')[1];
+    if (name.includes("orderTimeline.")) {
+      const key = name.split(".")[1];
       setFormData((prev) => ({
         ...prev,
         orderTimeline: {
@@ -39,9 +39,9 @@ const EditOrder = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log('Updated Order Details:', formData);
+    console.log("Updated Order Details:", formData);
   };
 
   return (

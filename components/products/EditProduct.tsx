@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { MultipleImageUpload } from '../shared/MultipleImageUpload/MultipleImageUpload'
-import { FileUpload, SingleImageUpload } from '../shared/FileUpload/FileUpload'
+import { SingleImageUpload } from '../shared/FileUpload/FileUpload'
 import ColorPicker from '../shared/ui/ColorPicker'
 
 interface FormData {

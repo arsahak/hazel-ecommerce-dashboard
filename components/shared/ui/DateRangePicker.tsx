@@ -69,8 +69,8 @@ export default function DateRangePicker({ topTitle }: any) {
   const [selectedRange, setSelectedRange] = useState("01/01/2024 - 18/12/2024");
 
   return (
-    <div className="mb-5">
-      <div className="space-y-2">
+    <div className="">
+      <div className=" flex items-center gap-5">
         <h2 className="!text-2xl font-semibold text-[#0f172a]">{topTitle}</h2>
         <button
           onClick={() => setIsOpen(true)}

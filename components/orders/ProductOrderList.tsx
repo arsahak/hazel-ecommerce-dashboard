@@ -310,18 +310,18 @@ export default function ProductOrderTable() {
   const isRowExpanded = (orderId: string) => expandedRows.includes(orderId)
 
   return (
-    <div className="bg-white w-full overflow-x-auto mt-10">
+    <div className="bg-white w-full border overflow-x-auto mt-4">
       <table className="w-full border-collapse">
-        <thead>
+        <thead className="bg-gray-50">
           <tr className="text-left">
-            <th className="py-4 px-4 font-medium text-blue-600"># ORDER</th>
-            <th className="py-4 px-4 font-medium">PRODUCT</th>
-            <th className="py-4 px-4 font-medium">SKU</th>
-            <th className="py-4 px-4 font-medium">CATEGORY</th>
-            <th className="py-4 px-4 font-medium">PAYMENT</th>
-            <th className="py-4 px-4 font-medium">ORDER STATUS</th>
-            <th className="py-4 px-4 font-medium">RATE</th>
-            <th className="py-4 px-4 font-medium">ACTIONS</th>
+            <th className="py-4 px-4 font-medium text-sm text-blue-600"># ORDER</th>
+            <th className="py-4 px-4 font-medium text-sm">PRODUCT</th>
+            <th className="py-4 px-4 font-medium text-sm">SKU</th>
+            <th className="py-4 px-4 font-medium text-sm">CATEGORY</th>
+            <th className="py-4 px-4 font-medium text-sm">PAYMENT</th>
+            <th className="py-4 px-4 font-medium text-sm">ORDER STATUS</th>
+            <th className="py-4 px-4 font-medium text-sm">RATE</th>
+            <th className="py-4 px-4 font-medium text-sm">ACTIONS</th>
           </tr>
         </thead>
         <tbody>
@@ -329,7 +329,7 @@ export default function ProductOrderTable() {
             <>
               <tr 
                 key={order.id} 
-                className={`border-t border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors ${
+                className={`border-t cursor-pointer hover:bg-gray-50 transition-colors ${
                   isRowExpanded(order.id) ? 'bg-gray-50' : ''
                 }`}
                 onClick={() => toggleRow(order.id)}
@@ -410,8 +410,8 @@ export default function ProductOrderTable() {
                       <svg
                         key={star}
                         className={`w-5 h-5 ${
-                          star <= order.rating ? 'text-yellow-400' :
-                          star - order.rating < 1 ? 'text-yellow-400' : 'text-gray-200'
+                          star <= order.rating ? 'text-primary' :
+                          star - order.rating < 1 ? 'text-primary' : 'text-gray-200'
                         }`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
@@ -443,7 +443,7 @@ export default function ProductOrderTable() {
               </tr>
               {isRowExpanded(order.id) && (
                 <tr>
-                  <td colSpan={8} className="bg-gray-50 border-t border-b border-gray-100">
+                  <td colSpan={8} className="bg-gray-50 border-t border-b ">
                     <div className="p-4 space-y-4 animate-fadeIn">
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div>

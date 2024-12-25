@@ -144,7 +144,7 @@ export default function CategoryList() {
 
   return (
     <div>
-      <div className="flex justify-between items-center my-8 bg-white p-4">
+      <div className="flex justify-between items-center bg-white p-4">
       <form className="lg:w-[30%]">
         <label className="mb-2 text-sm font-medium text-gray-900 sr-only">
           Search
@@ -178,27 +178,27 @@ export default function CategoryList() {
       </form>
         <button
           onClick={() => router.push(`/category/add-category`)}
-          className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/60 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/60 focus:outline-none"
         >
           Add New Category
         </button>
       </div>
-      <div className="bg-white w-full overflow-x-auto mt-10">
+      <div className="bg-white w-full border overflow-x-auto mt-4 text-sm">
         <table className="w-full border-collapse">
-          <thead>
+          <thead className='bg-gray-50'>
             <tr className="text-left">
-              <th className="py-4 px-4 font-medium">NAME</th>
-              <th className="py-4 px-4 font-medium">ITEMS</th>
-              <th className="py-4 px-4 font-medium">DESCRIPTION</th>
-              <th className="py-4 px-4 font-medium">Created At</th>
-              <th className="py-4 px-4 font-medium">STATUS</th>
-              <th className="py-4 px-4 font-medium">ACTIONS</th>
+              <th className="py-4 px-4 text-sm font-medium">NAME</th>
+              <th className="py-4 px-4 text-sm font-medium">ITEMS</th>
+              <th className="py-4 px-4 text-sm font-medium">DESCRIPTION</th>
+              <th className="py-4 px-4 text-sm font-medium">Created At</th>
+              <th className="py-4 px-4 text-sm font-medium">STATUS</th>
+              <th className="py-4 px-4 text-sm font-medium">ACTIONS</th>
             </tr>
           </thead>
           <tbody>
             {categories.map((category) => (
-              <tr key={category.id} className="border-t border-gray-100">
-                <td className="py-4 px-4 text-gray-600">
+              <tr key={category.id} className="border-t hover:bg-gray-50">
+                <td className="py-4 px-4">
                   {category.name}
                 </td>
                 <td className="py-4 px-4">

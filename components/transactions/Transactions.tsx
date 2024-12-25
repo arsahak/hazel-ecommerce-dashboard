@@ -13,14 +13,14 @@ const Transactions = () => {
 
     return (
         <div>
-            <div className="bg-white py-6 px-6 mt-6 mb-3 flex items-center justify-between">
+            <div className="bg-white py-6 px-6 mt-6 mb-4 flex items-center justify-between">
                 <h1 className="text-2xl lg:text-4xl font-semibold ">Transactions</h1>
                 <div className="">
                     <WorldRealTimeClock />
                 </div>
             </div>
 
-            <div className="">
+            <div className="mb-4">
                 <div className="flex items-center justify-between">
                     <DateRangePicker topTitle={'Transaction date form'} />
                     <div className="">

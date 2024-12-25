@@ -11,24 +11,24 @@ export default function TransactionTable() {
   }
   
     return (
-      <div className="w-full overflow-x-auto bg-white">
+      <div className="w-full overflow-x-auto border bg-white">
         <table className="w-full border-collapse">
-          <thead>
+          <thead className="bg-gray-50">
             <tr className="text-left">
-              <th className="py-4 px-4 font-medium text-blue-600">DATE & TIME</th>
-              <th className="py-4 px-4 font-medium">SELLER</th>
-              <th className="py-4 px-4 font-medium">SKU</th>
-              <th className="py-4 px-4 font-medium">TYPE</th>
-              <th className="py-4 px-4 font-medium">STATUS</th>
-              <th className="py-4 px-4 font-medium">CURR</th>
-              <th className="py-4 px-4 font-medium">FEE</th>
-              <th className="py-4 px-4 font-medium">TAX</th>
-              <th className="py-4 px-4 font-medium">TOTAL</th>
+              <th className="py-4 px-4 text-sm font-medium">DATE & TIME</th>
+              <th className="py-4 px-4 text-sm font-medium">SELLER</th>
+              <th className="py-4 px-4 text-sm font-medium">SKU</th>
+              <th className="py-4 px-4 text-sm font-medium">TYPE</th>
+              <th className="py-4 px-4 text-sm font-medium">STATUS</th>
+              <th className="py-4 px-4 text-sm font-medium">CURR</th>
+              <th className="py-4 px-4 text-sm font-medium">FEE</th>
+              <th className="py-4 px-4 text-sm font-medium">TAX</th>
+              <th className="py-4 px-4 text-sm font-medium">TOTAL</th>
             </tr>
           </thead>
           <tbody>
             {transactions.map((transaction) => (
-              <tr key={transaction.id} className="border-t border-gray-100">
+              <tr key={transaction.id} className="border-t hover:bg-gray-50">
                 <td className="py-4 px-4">
                   <div className="flex items-center gap-2">
                     <svg 

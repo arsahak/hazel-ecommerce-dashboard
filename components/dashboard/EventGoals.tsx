@@ -35,7 +35,7 @@ export function EventGoals() {
 
     <div className="grid gap-4 md:grid-cols-2">
       {/* Event Goals Card */}
-      <Card className="p-6">
+      <Card className="p-6 shadow-none rounded">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-pink-500" />
@@ -90,7 +90,7 @@ export function EventGoals() {
 
       <div className="flex flex-col gap-4 w-full">
         {/* Email Campaign Card */}
-        <Card className="p-6">
+        <Card className="p-6 shadow-none rounded">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-sm font-medium">EMAIL CAMPAIGN</h2>
             <button className="text-sm text-muted-foreground text-gray-400 hover:text-primary"><HiOutlineDotsVertical /></button>
@@ -118,7 +118,7 @@ export function EventGoals() {
             </div>
           </div>
         </Card>
-        <Card className="p-6">
+        <Card className="p-6 shadow-none rounded">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium">VENUE EXPENSES</span>

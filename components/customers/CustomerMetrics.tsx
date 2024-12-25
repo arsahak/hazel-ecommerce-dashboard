@@ -1,8 +1,8 @@
 export default function CustomerMetrics() {
     return (
-      <div className="grid gap-6 pt-5 md:grid-cols-3 lg:grid-cols-4 ">
+      <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4 ">
         {/* Metric Cards */}
-        <div className="bg-white h-48 rounded-lg p-6 shadow-sm">
+        <div className="bg-white h-48 rounded p-6 shadow-sm">
           <div className="flex flex-col gap-4">
             <div className="h-12 w-12 rounded-lg bg-emerald-100 flex items-center justify-center">
               <svg className="w-6 h-6 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -16,7 +16,7 @@ export default function CustomerMetrics() {
           </div>
         </div>
   
-        <div className="bg-white h-48 rounded-lg p-6 shadow-sm">
+        <div className="bg-white h-48 rounded p-6 shadow-sm">
           <div className="flex flex-col gap-4">
             <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center">
               <svg className="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -30,7 +30,7 @@ export default function CustomerMetrics() {
           </div>
         </div>
   
-        <div className="bg-white h-48 rounded-lg p-6 shadow-sm">
+        <div className="bg-white h-48 rounded p-6 shadow-sm">
           <div className="flex flex-col gap-4">
             <div className="h-12 w-12 rounded-lg bg-pink-100 flex items-center justify-center">
               <svg className="w-6 h-6 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -45,7 +45,7 @@ export default function CustomerMetrics() {
         </div>
   
         {/* Conversion Rate Section */}
-        <div className="bg-white h-48 rounded-lg p-6 shadow-sm">
+        <div className="bg-white h-48 rounded p-6 shadow-sm">
           <div className="space">
             <h2 className="text-xl font-semibold">Conversion Rate</h2>
             

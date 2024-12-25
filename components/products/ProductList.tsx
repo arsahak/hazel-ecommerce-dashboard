@@ -258,7 +258,7 @@ export default function ProductList() {
           </Link>
           <button
             onClick={handleExportCSV}
-            className="text-blue-600 border border-blue-600 hover:bg-blue-50 px-4 py-2 rounded-md w-full sm:w-auto text-center"
+            className="text-primary border border-primary hover:bg-primary/10 px-4 py-2 rounded-md w-full sm:w-auto text-center"
           >
             Export CSV
           </button>
@@ -267,7 +267,7 @@ export default function ProductList() {
           <input
             type="search"
             placeholder="Search Product"
-            className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <button
             type="submit"
@@ -315,8 +315,8 @@ export default function ProductList() {
           "Additional Options",
         ].map((filter) => (
           <div key={filter} className="relative w-full sm:w-48">
-            <select className="w-full appearance-none border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="">{filter}</option>
+            <select className="w-full appearance-none border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="" className="border-none">{filter}</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg
@@ -333,13 +333,13 @@ export default function ProductList() {
         <div className="flex gap-4 w-full sm:w-auto mt-4 sm:mt-0">
           <button
             onClick={handleApplyFilters}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex-1 sm:flex-none"
+            className="bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-md flex-1 sm:flex-none"
           >
             Apply
           </button>
           <button
             onClick={handleClearFilters}
-            className="border border-gray-300 hover:bg-gray-50 px-4 py-2 rounded-md flex-1 sm:flex-none"
+            className="border border-gray-300 hover:border-primary hover:text-primary hover:bg-gray-50 px-4 py-2 rounded-md flex-1 sm:flex-none"
           >
             Clear
           </button>
@@ -351,7 +351,7 @@ export default function ProductList() {
           View products: {viewCount}/{totalCount}
         </div>
         <div className="w-full sm:w-48">
-          <select className="w-full appearance-none border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <select className="w-full appearance-none border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
             <option value="">Select Action</option>
             <option value="delete">Delete</option>
             <option value="archive">Archive</option>
@@ -366,48 +366,48 @@ export default function ProductList() {
               <th className="p-4 text-left">
                 <input
                   type="checkbox"
-                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  className="rounded border-gray-300 text-primary focus:ring-primary"
                 />
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Product Name
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 SKU
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Stock
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Price
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Type
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Statistics
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Tags
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Rate
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Date
               </th>
-              <th className="p-4 text-left font-medium text-xs uppercase text-gray-500">
+              <th className="p-4 text-left font-medium text-sm uppercase text-primary">
                 Actions
               </th>
             </tr>
           </thead>
           <tbody>
             {filteredProducts.map((product) => (
-              <tr key={product.id} className="border-b">
+              <tr key={product.id} className="border-t hover:bg-gray-50">
                 <td className="p-4">
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    className="rounded border-gray-300 text-primary focus:ring-primary"
                   />
                 </td>
                 <td className="p-4">
@@ -441,7 +441,7 @@ export default function ProductList() {
                     {product.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs"
+                        className="px-2 py-1 bg-blue-50 text-blue-500 rounded text-xs"
                       >
                         {tag}
                       </span>
@@ -449,7 +449,7 @@ export default function ProductList() {
                   </div>
                 </td>
                 <td className="p-4">
-                  <FiStar className="w-5 h-5 text-blue-600 fill-current" />
+                  <FiStar className="w-5 h-5 text-primary fill-current" />
                 </td>
                 <td className="p-4">
                   <div className="text-sm">

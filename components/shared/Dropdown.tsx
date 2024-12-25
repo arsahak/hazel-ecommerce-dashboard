@@ -33,15 +33,15 @@ export function Dropdown({ options, value, onChange, placeholder = 'Select optio
           w-full px-4 py-2 
           flex items-center justify-between
           bg-white border rounded-lg
-          ${isOpen ? 'border-blue-600' : 'border-gray-200'}
-          hover:border-primary transition-colors duration-200
+          ${isOpen ? 'ring-2 ring-primary' : 'border-gray-300'}
+          transition-colors duration-200
         `}
       >
         <span className="text-gray-900">{value || placeholder}</span>
         {isOpen ? (
-          <FiChevronUp className="w-5 h-5 text-blue-600" />
+          <FiChevronUp className="w-5 h-5 text-primary" />
         ) : (
-          <FiChevronDown className="w-5 h-5 text-blue-600" />
+          <FiChevronDown className="w-5 h-5 text-primary" />
         )}
       </button>
 
@@ -56,7 +56,7 @@ export function Dropdown({ options, value, onChange, placeholder = 'Select optio
               }}
               className="w-full px-4 py-2 text-left hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
             >
-              {option}
+              <span>{option}</span>
             </button>
           ))}
         </div>

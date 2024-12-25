@@ -12,7 +12,7 @@ const ShopDetailsSection = () => {
     <div>
       <div className="grid gap-4 py-4 grid-cols-1 lg:grid-cols-6 overflow-hidden">
         {/* Net Sales Card */}
-        <Card className="p-6 lg:col-span-3">
+        <Card className="p-6 lg:col-span-3 shadow-none rounded">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-sm font-medium text-muted-foreground">NET SALES</h2>
             <button className="text-sm text-muted-foreground text-gray-400 hover:text-primary"><HiOutlineDotsVertical /></button>
@@ -35,9 +35,9 @@ const ShopDetailsSection = () => {
           </div>
         </Card>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:col-span-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:col-span-3">
           {/* Earlybird Ticket Card */}
-          <Card className="p-6 col-span-1">
+          <Card className="p-6 col-span-1 shadow-none rounded">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-blue-500" />
@@ -67,10 +67,10 @@ const ShopDetailsSection = () => {
 
           {/* Gross Sells Card */}
           <div className="space-y-4 col-span-1">
-            <Card className="p-6 bg-blue-400 text-white">
+            <Card className="p-6 bg-blue-400 text-white shadow-none rounded">
               <div className=" mb-4">
                 <div className="flex items-center gap-2">
-                  <h2 className="text-sm font-medium">GROSS SELLS</h2>
+                  <h2 className="text-sm font-medium">TOP SELLS</h2>
                   <BiChevronDown className="h-4 w-4" />
                 </div>
                 <div className="text-xl font-semibold">$2,300</div>
@@ -86,7 +86,7 @@ const ShopDetailsSection = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 shadow-none rounded">
               <div className="space-y-4">
                 <div>
                   <div className="text-sm text-gray-500 mb-1">ONLINE SELLS</div>

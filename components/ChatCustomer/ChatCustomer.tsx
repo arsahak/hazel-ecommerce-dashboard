@@ -23,9 +23,9 @@ interface Message {
 export default function ChatInterface() {
 
     return (
-        <div className='flex flex-col lg:flex-row gap-5 justify-between  mt-5'>
+        <div className='flex flex-col lg:flex-row gap-5 justify-between '>
             <SearchChat/>
-            <div className="lg:w-[50%] h-screen bg-white flex flex-col">
+            <div className="lg:w-[65%] h-screen bg-white flex flex-col">
                 {/* Header */}
                 <div className="flex items-center p-4 border-b">
                     <div className="flex items-center flex-1">

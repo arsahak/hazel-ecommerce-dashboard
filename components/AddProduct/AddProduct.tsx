@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { MultipleImageUpload } from '../shared/MultipleImageUpload/MultipleImageUpload'
-import { FileUpload } from '../shared/FileUpload/FileUpload'
+import { FileUpload, SingleImageUpload } from '../shared/FileUpload/FileUpload'
 import ColorPicker from '../shared/ui/ColorPicker'
 
 interface FormData {
@@ -53,32 +53,44 @@ export default function AddProduct() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData(prev => ({ ...prev, image: e.target.files![0] }))
-    }
-  }
-
-  const handleFileSelect = (file: File) => {
-    console.log('Selected file:', file)
-    // Here you would typically handle the actual file upload to your server
-  }
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Form submitted:', formData)
     router.push('/products')
   }
 
+  const [multipleFiles, setMultipleFiles] = useState<File[]>([])
+  const [singleFile, setSingleFile] = useState<File | null>(null)
+
+  const handleMultipleFilesChange = (files: File[]) => {
+    setMultipleFiles(files)
+    console.log('Multiple files updated:', files)
+  }
+
+  const handleSingleFileChange = (file: File | null) => {
+    setSingleFile(file)
+    console.log('Single file updated:', file)
+  }
+
+
   return (
-    <div className=" mt-10 p-6 bg-white rounded-lg shadow">
+    <div className="p-6 bg-white rounded-lg shadow">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-          <FileUpload onFileSelect={handleFileSelect} label="Feature Image"/>
+          {/* <FileUpload onFileSelect={handleFileSelect} label="Feature Image"/> */}
+          <SingleImageUpload 
+              label="Upload Feature Image" 
+              onFileChange={handleSingleFileChange}
+            />
           </div>
           <div>
-          <MultipleImageUpload label="Gallery Images"/>
+          {/* <MultipleImageUpload label="Gallery Images"/> */}
+          <MultipleImageUpload 
+              label="Upload Gallery Images" 
+              maxFiles={10}
+              onFilesChange={handleMultipleFilesChange}
+            />
           </div>
           <div>
             <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">Title</label>

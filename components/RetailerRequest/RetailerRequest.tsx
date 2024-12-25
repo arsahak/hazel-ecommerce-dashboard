@@ -258,21 +258,21 @@ export default function RetailerRequest() {
     }
 
     return (
-        <div className="bg-white w-full overflow-x-auto mt-10">
+        <div className="bg-white w-full border overflow-x-auto mt-4">
             <table className="w-full border-collapse">
-                <thead>
+                <thead className="bg-gray-50">
                     <tr className="text-left">
-                        <th className="py-4 px-4 font-medium text-blue-600">NAME</th>
-                        <th className="py-4 px-4 font-medium">Email</th>
-                        <th className="py-4 px-4 font-medium">STATUS</th>
-                        <th className="py-4 px-4 font-medium">DATE SUBMITTED</th>
-                        <th className="py-4 px-4 font-medium">Type</th>
-                        <th className="py-4 px-4 font-medium">ACTIONS</th>
+                        <th className="py-4 px-4 font-medium text-sm">NAME</th>
+                        <th className="py-4 px-4 font-medium text-sm">Email</th>
+                        <th className="py-4 px-4 font-medium text-sm">STATUS</th>
+                        <th className="py-4 px-4 font-medium text-sm">DATE SUBMITTED</th>
+                        <th className="py-4 px-4 font-medium text-sm">Type</th>
+                        <th className="py-4 px-4 font-medium text-sm">ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentCustomers.map((customer) => (
-                        <tr key={customer.id} className="border-t border-gray-100">
+                        <tr key={customer.id} className="border-t hover:bg-gray-50">
                             <td className="py-4 px-4 text-gray-600">
                                 {customer.name}
                             </td>

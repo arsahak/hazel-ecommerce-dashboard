@@ -35,8 +35,8 @@ export default function EditCategory() {
     }
 
     return (
-        <div className=" mt-10 p-6 bg-white rounded-lg shadow">
-            <h1 className="text-2xl font-bold mb-6">Edit Category</h1>
+        <div className=" mt-4 p-6 bg-white rounded-lg shadow">
+            {/* <h1 className="text-2xl font-bold mb-6">Edit Category</h1> */}
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>

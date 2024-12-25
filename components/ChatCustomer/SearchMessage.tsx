@@ -47,26 +47,23 @@ const SAMPLE_CHATS: Chat[] = [
     }
   },
   {
-    id: '2',
+    id: '1',
     user: {
-      id: '2',
-      name: 'Jared Sunn',
-      avatar: '/assets/images.png',
-      status: 'records voice message'
+      id: '1',
+      name: 'Luy Robin',
+      avatar: '/assets/images.png', 
+      status: 'writes'
     },
     lastMessage: {
-      id: '2',
-      content: 'Voice message',
+      id: '1',
+      content: 'Most of its text is made up from sections 1.10.32-3 of Cicero\'s De finibus bonorum et malorum (On the boundaries of Good and Evil; finibus may also be translated as purposes).',
       timestamp: '1 minute ago',
-      type: 'voice',
-      attachments: [
-        { type: 'voice', duration: '01:15' },
-        { type: 'photo' }
-      ]
+      type: 'text'
     }
   },
+  
   {
-    id: '3',
+    id: '2',
     user: {
       id: '3',
       name: 'Nika Jerrardo',
@@ -97,7 +94,7 @@ export function SearchChat() {
   }
 
   return (
-    <div className="lg:w-[50%] bg-white rounded-2xl shadow-sm">
+    <div className="lg:w-[35%] bg-white rounded shadow-sm">
       <div className="p-4">
         <div className="flex items-center gap-4 mb-6">
           <div className="relative flex-1">
@@ -110,10 +107,6 @@ export function SearchChat() {
               className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <button className="flex items-center gap-1 text-gray-600 hover:text-gray-900">
-            <span className="text-sm">Messages</span>
-            <FiChevronDown className="w-4 h-4" />
-          </button>
         </div>
 
         <div className="space-y-2">
@@ -151,7 +144,7 @@ export function SearchChat() {
                   <p className={`text-sm truncate ${chat.isActive ? 'text-blue-50' : 'text-gray-600'}`}>
                     {chat.lastMessage.content}
                   </p>
-                  {chat.lastMessage.attachments && (
+                  {/* {chat.lastMessage.attachments && (
                     <div className="flex gap-2 mt-2">
                       {chat.lastMessage.attachments.map((attachment, index) => (
                         <div
@@ -170,7 +163,7 @@ export function SearchChat() {
                         </div>
                       ))}
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>

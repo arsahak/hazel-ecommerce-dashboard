@@ -5,7 +5,7 @@ import { HuePicker, ColorResult } from "react-color"; // Importing the required 
 
 const ColorPicker: React.FC = () => {
   const [color, setColor] = useState<string>("#ff0000"); // Default color with type
-
+  const [colorName, setColorName] = useState<string>("");
   const handleChange = (color: ColorResult): void => {
     setColor(color.hex); // Update color state with the hex value
   };
@@ -30,6 +30,15 @@ const ColorPicker: React.FC = () => {
           style={{
             backgroundColor: color,
           }}
+        />
+      </div>
+      <div className="border border-gray-300 flex items-center space-x-6 rounded p-2">
+        <input
+          type="text"
+          value={colorName}
+          placeholder="Color Name"
+          onChange={(e) => setColorName(e.target.value)} // Update color state from input
+          className="focus:outline-none w-[100px] border-none"
         />
       </div>
     </div>

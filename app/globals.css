@@ -8,9 +8,9 @@ body {
   background: #eeeeee;
 }
 
-::selection {
+/* ::selection {
   background: blue;
-}
+} */
 
 ::-webkit-scrollbar {
   height: 12px;

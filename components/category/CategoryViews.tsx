@@ -1,7 +1,8 @@
+"use client";
 import WorldRealTimeClock from "../shared/WorldRealTImeClock";
 import CategoryList from "./CategoryList";
 
-const CategoryViews = () => {
+const CategoryViews = ({ categories }: any) => {
   return (
     <div className="">
       <div className="bg-white py-6 px-6 mt-6 mb-3 flex items-center justify-between">
@@ -10,7 +11,7 @@ const CategoryViews = () => {
           <WorldRealTimeClock />
         </div>
       </div>
-      <CategoryList />
+      <CategoryList datastest={categories} />
     </div>
   );
 };

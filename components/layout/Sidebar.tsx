@@ -109,7 +109,7 @@ const Sidebar = () => {
           </div>
           <ul className="space-y-3 font-semibold mt-4 w-full">
             {sideBarData?.map((el, index) => (
-              <li>
+              <li key={index}>
                 <Link
                   href={el?.slug}
                   className={`flex items-center p-2 text-gray-700 rounded-lg  hover:bg-gray-100 group ${

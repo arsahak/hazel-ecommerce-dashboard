@@ -81,9 +81,11 @@ const CategoryList: React.FC = () => {
 
       if (result.ok) {
         toast.success("Category deleted successfully!");
+        // Refetch categories to update the UI
+        fetchCategories(searchTerm, currentPage, 5);
       } else {
         setError(result.error || "Failed to delete category");
-        toast.error("Failed to delete category");
+        toast.error(result.error || "Failed to delete category");
       }
     } catch (err) {
       console.error("Error during deletion:", err);
@@ -155,7 +157,7 @@ const CategoryList: React.FC = () => {
                     <button
                       className="bg-yellow-100 hover:bg-yellow-200 p-1.5 rounded-lg mr-2"
                       onClick={() =>
-                        router.push(`/category/edit-category/${category._id}`)
+                        router.push(`/edit-category/${category._id}`)
                       }
                     >
                       <FiEdit className="text-[#D5AD45]" />

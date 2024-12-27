@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaShoppingBasket } from "react-icons/fa";
-import { FaGetPocket, FaPeopleGroup } from "react-icons/fa6";
+import { FaGetPocket, FaPeopleGroup, FaPeopleLine } from "react-icons/fa6";
 import { HiChatBubbleLeftRight } from "react-icons/hi2";
 import { IoLogOut } from "react-icons/io5";
 import {
@@ -36,6 +36,11 @@ const sideBarData = [
     icon: <MdCategory className="size-7 text-gray-700" />,
     slug: "/category",
     title: "Category",
+  },
+  {
+    icon: <FaPeopleLine className="size-7 text-gray-700" />,
+    slug: "/users",
+    title: "Users",
   },
   {
     icon: <FaPeopleGroup className="size-7 text-gray-700" />,

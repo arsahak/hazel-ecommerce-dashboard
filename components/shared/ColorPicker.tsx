@@ -1,18 +1,18 @@
-import React from 'react';
-import { SketchPicker } from 'react-color';
+import React from "react";
+import { SketchPicker } from "react-color";
 
 class Component extends React.Component {
   state = {
-    background: '#fff', // Default color
+    background: "#fff", // Default color
   };
 
-  handleChangeComplete = (color) => {
+  handleChangeComplete = (color: any) => {
     this.setState({ background: color.hex });
   };
 
   render() {
     return (
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: "20px" }}>
         <h2>Select a Color</h2>
         <SketchPicker
           color={this.state.background}
@@ -20,12 +20,12 @@ class Component extends React.Component {
         />
         <div
           style={{
-            marginTop: '20px',
-            width: '100px',
-            height: '50px',
+            marginTop: "20px",
+            width: "100px",
+            height: "50px",
             backgroundColor: this.state.background,
-            border: '1px solid #000',
-            borderRadius: '5px',
+            border: "1px solid #000",
+            borderRadius: "5px",
           }}
         >
           Selected Color

@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { Line } from "react-chartjs-2"
 import {
-  Chart as ChartJS,
   CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
+  Chart as ChartJS,
   Filler,
-} from "chart.js"
+  LinearScale,
+  LineElement,
+  PointElement,
+  Tooltip,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -18,17 +18,24 @@ ChartJS.register(
   LineElement,
   Tooltip,
   Filler
-)
+);
 
 interface LineChartProps {
-  data: number[]
-  previousData?: number[]
-  labels?: string[]
-  minimal?: boolean
+  data: number[];
+  previousData?: (number | undefined)[];
+  labels?: string[];
+  minimal?: boolean;
+  color: string;
 }
 
-export function LineChart({ data, previousData, labels, minimal = false, color }: LineChartProps) {
-  const defaultLabels = labels || data.map((_, i) => i.toString())
+export function LineChart({
+  data,
+  previousData,
+  labels,
+  minimal = false,
+  color,
+}: LineChartProps) {
+  const defaultLabels = labels || data.map((_, i) => i.toString());
 
   const options = {
     responsive: true,
@@ -41,25 +48,27 @@ export function LineChart({ data, previousData, labels, minimal = false, color }
         display: false,
       },
     },
-    scales: minimal ? {
-      x: {
-        display: false,
-      },
-      y: {
-        display: false,
-      }
-    } : {
-      x: {
-        grid: {
-          display: false,
+    scales: minimal
+      ? {
+          x: {
+            display: false,
+          },
+          y: {
+            display: false,
+          },
+        }
+      : {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+          y: {
+            grid: {
+              color: color,
+            },
+          },
         },
-      },
-      y: {
-        grid: {
-          color: color,
-        },
-      }
-    },
     elements: {
       line: {
         tension: 0.4,
@@ -69,7 +78,7 @@ export function LineChart({ data, previousData, labels, minimal = false, color }
         hoverRadius: minimal ? 0 : 6,
       },
     },
-  }
+  };
 
   const chartData = {
     labels: defaultLabels,
@@ -81,16 +90,19 @@ export function LineChart({ data, previousData, labels, minimal = false, color }
         fill: true,
         borderWidth: 2,
       },
-      ...(previousData ? [{
-        data: previousData,
-        borderColor: "rgba(148, 163, 184, 0.2)",
-        borderDash: [5, 5],
-        fill: false,
-        borderWidth: 2,
-      }] : []),
+      ...(previousData
+        ? [
+            {
+              data: previousData,
+              borderColor: "rgba(148, 163, 184, 0.2)",
+              borderDash: [5, 5],
+              fill: false,
+              borderWidth: 2,
+            },
+          ]
+        : []),
     ],
-  }
+  };
 
-  return <Line options={options} data={chartData} />
+  return <Line options={options} data={chartData} />;
 }
-

@@ -392,7 +392,7 @@ export function SingleImageUpload({ label, onFileChange }: SingleImageUploadProp
             <img
               src={file.preview}
               alt="Uploaded"
-              className="w-full h-64 object-cover"
+              className="w-full h-64 xl:h-80 object-cover"
             />
             <button
               onClick={removeFile}

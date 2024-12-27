@@ -32,7 +32,7 @@ const ColorPicker: React.FC = () => {
           }}
         />
       </div>
-      <div className="border border-gray-300 flex items-center space-x-6 rounded p-2">
+      {/* <div className="border border-gray-300 flex items-center space-x-6 rounded p-2">
         <input
           type="text"
           value={colorName}
@@ -40,7 +40,7 @@ const ColorPicker: React.FC = () => {
           onChange={(e) => setColorName(e.target.value)} // Update color state from input
           className="focus:outline-none w-[100px] border-none"
         />
-      </div>
+      </div> */}
     </div>
   );
 };
